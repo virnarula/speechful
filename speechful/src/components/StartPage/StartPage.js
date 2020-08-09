@@ -1,6 +1,6 @@
 import React from 'react'
-import './StartPage.css'
 import Button from '@material-ui/core/Button'
+import './StartPage.css'
 
 function StartPage () {
     return (
@@ -10,7 +10,7 @@ function StartPage () {
           <Button
             variant='contained'
             color="primary"
-            to="/home">
+            href="/home">
             Click Here to get started
           </Button>
       </header>
