@@ -8,3 +8,10 @@
     /* justify-content: center; */
     color: white;
 }
+
+.SearchBar {
+    margin-top: 1%;
+    height: 2%;
+    min-width: 80%;
+    margin-bottom: 5%;
+}
