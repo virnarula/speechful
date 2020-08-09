@@ -12,7 +12,7 @@ In order to set up the project for contribution, run:
 1. `git clone [repo url]` to clone this repository
 1. `cd speechful` to enter the `/speechful` directory.
 1. `npm install` to install all the dependencies of the project
-1. `npm electron-dev` to launch the electron applicaton.
+1. `npm sdev` to launch the electron applicaton.
 
 ## File Structure
 This project is set up like a traditional react project.
