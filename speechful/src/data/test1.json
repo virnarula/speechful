@@ -1,0 +1,281 @@
+{
+    "title":"Homer's Iliad",
+    "styles": {
+
+    },
+    "paragraphs":[
+        {
+            "styles":{
+
+            },
+            "sentences":[
+                {
+                    "styles":{
+                        "font-weight": "bold"
+                    },
+                    "words":[
+                        {
+                            "text": "Lorem",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text": "ipsum",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text": "dolor",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text": "sit",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text": "amet.",
+                            "styles":{
+
+                            }
+                        }
+                    ]
+                },
+                {
+                    "styles":{
+                        "font-size": "16px"
+                    },
+                    "words":[
+                        {
+                            "text":"Consectetur",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"adipiscing",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"elit",
+                            "styles":{
+
+                            }
+                        }
+                    ]
+                },
+                {
+
+                    "styles":{
+                        "font-style": "italic"
+                    },
+                    "words":[
+                        {
+                            "text":"Sed",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"do",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"eiusmod",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"tempor",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"incididunt",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"ut",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"labore",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"et",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"dolore",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"magna",
+                            "styles":{
+
+                            }
+                        },
+                        {
+                            "text":"aliqua",
+                            "styles":{
+
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "styles":{
+                "text-align":"center"
+            },
+            "sentences":[
+                {
+                    "styles":{
+                        "text-decoration": "underline"
+                    },
+                    "words":[
+                        {
+                            "styles":{
+
+                            },
+                            "text":"Ut"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"enim"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"ad"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"minim"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"veniam."
+                        }
+                    ]
+                },
+                {
+                    "styles":{
+                        "text-decoration": "overline"
+                    },
+                    "words":[
+                        {
+                            "styles":{
+
+                            },
+                            "text":"Quis"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"nostrud"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"exercitation"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"ullamco"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"laboris."
+                        }
+                    ]
+                },
+                {
+                    "styles":{
+                        "text-decoration": "line-through"
+                    },
+                    "words":[
+                        {
+                            "styles":{
+
+                            },
+                            "text":"nisi"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"ut"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"aliquip"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"ex"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"ea"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"commodo"
+                        },
+                        {
+                            "styles":{
+
+                            },
+                            "text":"consequat."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
