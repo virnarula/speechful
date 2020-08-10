@@ -11,7 +11,7 @@
             "sentences":[
                 {
                     "styles":{
-                        "fontWeight": "bold"
+                        "font-weight": "bold"
                     },
                     "words":[
                         {
@@ -48,7 +48,7 @@
                 },
                 {
                     "styles":{
-                        "fontSize": "16px"
+                        "font-size": "16px"
                     },
                     "words":[
                         {
@@ -74,7 +74,7 @@
                 {
 
                     "styles":{
-                        "fontStyle": "italic"
+                        "font-style": "italic"
                     },
                     "words":[
                         {
@@ -149,12 +149,12 @@
         },
         {
             "styles":{
-                "textAlign":"center"
+                "text-align":"center"
             },
             "sentences":[
                 {
                     "styles":{
-                        "textDecoration": "underline"
+                        "text-decoration": "underline"
                     },
                     "words":[
                         {
@@ -191,7 +191,7 @@
                 },
                 {
                     "styles":{
-                        "textDecoration": "overline"
+                        "text-decoration": "overline"
                     },
                     "words":[
                         {
@@ -228,7 +228,7 @@
                 },
                 {
                     "styles":{
-                        "textDecoration": "line-through"
+                        "text-decoration": "line-through"
                     },
                     "words":[
                         {
