@@ -6,7 +6,7 @@ class Document extends React.Component {
     return (
       <article styles={this.props.document.styles}>
         <header>
-          {this.props.document.title}
+          <h1>{this.props.document.title}</h1>
         </header>
         <section>
         {

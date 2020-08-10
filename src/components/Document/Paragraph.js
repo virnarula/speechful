@@ -4,9 +4,9 @@ import Sentence from './Sentence'
 class Paragraph extends React.Component {
   render() {
     return (
-      <div style={this.props.paragraph.styles}>
-        p{this.props.index}
-        <p>
+      <div>
+        paragraph {this.props.index}
+        <p style={this.props.paragraph.styles}>
         {
           this.props.paragraph.sentences.map((s, i) => {
             return <Sentence index={i} sentence={s}/>
