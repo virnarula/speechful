@@ -1,9 +1,8 @@
 import React from 'react'
-
+import json from '../../data/test1.json'
+import Document from '../Document/Document'
 function DocumentScreen () {
-    return (
-        <h1> Document Screen </h1>
-    );
+    return <Document document={json} />
 }
 
 export default DocumentScreen;
