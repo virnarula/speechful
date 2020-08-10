@@ -1,17 +1,11 @@
 import Paragraph from './Paragraph'
 
 class Document {
-    constructor(paragraphs, styles, title) {
+    constructor(paragraphs, title, styles? = {}) {
         this.paragraphs = paragraphs;
-        this.styles = styles;
         this.title = title;
+        this.styles = styles;
     }
-
-    // constructor(paragraphs, title) {
-    //     this.paragraphs = paragraphs;
-    //     this.title = title;
-    //     this.styles = {}
-    // }
 }
 
 export default Document;
