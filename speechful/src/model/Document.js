@@ -1,8 +1,16 @@
+import Paragraph from './Paragraph'
+
 class Document {
-    constructor(paragraphs, title, lastEdited) {
+    constructor(paragraphs, styles, title) {
+        this.paragraphs = paragraphs;
+        this.styles = styles;
+        this.title = title;
+    }
+
+    constructor(paragraphs, title) {
         this.paragraphs = paragraphs;
         this.title = title;
-        this.lastEdited = lastEdited;
+        this.styles = {}
     }
 }
 
