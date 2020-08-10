@@ -7,11 +7,11 @@ class Document {
         this.title = title;
     }
 
-    constructor(paragraphs, title) {
-        this.paragraphs = paragraphs;
-        this.title = title;
-        this.styles = {}
-    }
+    // constructor(paragraphs, title) {
+    //     this.paragraphs = paragraphs;
+    //     this.title = title;
+    //     this.styles = {}
+    // }
 }
 
 export default Document;

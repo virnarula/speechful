@@ -6,10 +6,10 @@ class Paragraph{
         this.styles = styles;
     }
 
-    constructor (sentences) {
-        this.sentences = sentences;
-        this.styles = {}
-    }
+    // constructor (sentences) {
+    //     this.sentences = sentences;
+    //     this.styles = {}
+    // }
 }
 
 export default Paragraph;

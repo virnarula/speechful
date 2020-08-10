@@ -6,10 +6,10 @@ class Sentence {
         this.styles = styles;
     }
 
-    constructor (words) {
-        this.words = words;
-        this.styles = {};
-    }
+    // constructor (words) {
+    //     this.words = words;
+    //     this.styles = {};
+    // }
 }
 
 export default Sentence;
