@@ -12,6 +12,7 @@
     "electron": "^9.2.0",
     "electron-builder": "^22.8.0",
     "electron-is-dev": "^1.2.0",
+    "lodash": "^4.17.19",
     "material-ui-search-bar": "^1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
