@@ -5,6 +5,9 @@ import { makeDocument, updateParagraph } from '../../model/Document'
 import 'react-split-pane'
 import SplitPane from 'react-split-pane'
 import { Button } from '@material-ui/core'
+import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { sizing } from '@material-ui/system';
 import './DocumentScreen.css'
 
 class DocumentScreen extends React.Component {
@@ -28,7 +31,9 @@ class DocumentScreen extends React.Component {
           <Button
             variant="contained"
             color="primary"
-            href="/home">
+            fullWidth={true}
+            href="/home"
+            height="100%">
             Go home
           </Button>
 
@@ -37,7 +42,7 @@ class DocumentScreen extends React.Component {
           <h1 class="document-title">Currently Viewing Full Document</h1>
 
           <div class="circle">
-            <h1>Mic</h1>
+            <FontAwesomeIcon icon={faMicrophone} />
           </div>
 
           <Button
@@ -45,7 +50,8 @@ class DocumentScreen extends React.Component {
             color="primary"
             onClick={() => {
               console.log("click");
-            }}>
+            }}
+            fullWidth={true}>
             Save file
           </Button>
         </div>
