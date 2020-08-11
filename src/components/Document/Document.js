@@ -5,6 +5,7 @@ class Document extends React.Component {
   render() {
     return (
       <article styles={this.props.document.styles}>
+        <h1> {this.props.document.id} </h1>
         <header>
           <h1>{this.props.document.title}</h1>
         </header>

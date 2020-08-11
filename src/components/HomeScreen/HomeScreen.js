@@ -37,10 +37,15 @@ class DocumentItem extends React.Component {
                 <Paper 
                     className="DocumentPaper">
                     <h1 className="DocumentTitle"> { this.props.document.title } </h1>
+                    <a href={getDocumentUrl(this.props.document.id)}>Open file</a>
                 </Paper>
             </div>
         );
     }
+}
+
+function getDocumentUrl(id) {
+    return "/document/:" + id.toString();
 }
 
 class DocumentGrid extends React.Component {
