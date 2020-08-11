@@ -26,9 +26,6 @@ function HomeScreen() {
                 + Create New Document
             </Button>
             <DocumentGrid className="DocumentGrid" documentList={getDocumentList()} />
-            <Paper>
-                <h1> test 2 </h1>
-            </Paper>
         </div>
     );
 }
@@ -38,8 +35,8 @@ class DocumentItem extends React.Component {
         return (
             <div className="DocumentItem">
                 <Paper 
-                    className={classes.paperRoot}>
-                    <h1 className="DocumentTitle"> test 1 </h1>
+                    className="DocumentPaper">
+                    <h1 className="DocumentTitle"> { this.props.document.title } </h1>
                 </Paper>
             </div>
         );
@@ -47,14 +44,18 @@ class DocumentItem extends React.Component {
 }
 
 class DocumentGrid extends React.Component {
+
+
     render() {
         return (
             <div className="DocumentGrid">
                 <Grid container spacing={3} className="DocumentGrid">
                     <Grid item xs={12}>
-                        <DocumentItem
-                            document={this.props.documentList[0]}
-                             />
+                        {
+                            this.props.documentList.map((p, i) => {
+                                return <DocumentItem document={p}/>
+                            })
+                        }
                     </Grid>
                 </Grid>
             </div>
@@ -63,7 +64,7 @@ class DocumentGrid extends React.Component {
 }
 
 function getDocumentList() {
-    return [json];
+    return [json, json];
 }
 
 export default HomeScreen;
