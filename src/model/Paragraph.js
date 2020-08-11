@@ -1,30 +1,34 @@
-class Paragraph{
-  constructor(text, styles? = {}) {
-    this.text = text;
-    this.styles = styles;
-  }
+import _ from 'lodash'
 
-  changeWord(word, i) {
-    let words = this.text.split(" ")
-    if (word === "") {
-      words.splice(i, 1)
-    }
-    else {
-      words[i] = word
-    }
-    this.text = words.join(" ")
-  }
-  
-  changeSentence(sentence, i) {
-    let sentences = this.text.split(".")
-    if (sentence === "") {
-      sentences.splice(i, 1)
-    }
-    else {
-      sentences[i] = sentences
-    }
-    this.text = sentences.join(".")
-  }
+export function makeParagraph(text, styles? = {}) {
+  let p = {}
+  p.text = text;
+  p.styles = styles;
+  return p
 }
 
-export default Paragraph;
+export function changeWord(p, word, i) {
+  let newPara = _.cloneDeep(p)
+  let words = newPara.text.split(" ")
+  if (word === "") {
+    words.splice(i, 1)
+  }
+  else {
+    words[i] = word
+  }
+  newPara.text = words.join(" ")
+  return newPara
+}
+  
+export function changeSentence(p, sentence, i) {
+  let newPara = _.cloneDeep(p)
+  let sentences = newPara.text.split(".")
+  if (sentence === "") {
+    sentences.splice(i, 1)
+  }
+  else {
+    sentences[i] = sentences
+  }
+  newPara.text = sentences.join(".")
+  return newPara
+}

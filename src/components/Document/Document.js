@@ -2,8 +2,8 @@ import React from 'react'
 import Paragraph from './Paragraph'
 
 class Document extends React.Component {
-  onChange = (i, p) => {
-    this.props.paragraphChange(i, p)
+  handleChange = (i, p) => {
+    this.props.handleChange(i, p)
   }
 
   render() {

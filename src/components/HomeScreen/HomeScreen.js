@@ -23,9 +23,6 @@ function HomeScreen () {
 }
 
 class DocumentItem extends React.Component {
-    constructor(document) {
-        this.document = document;
-    }
     render() {
 
         return (
