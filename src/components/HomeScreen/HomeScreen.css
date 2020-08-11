@@ -15,3 +15,23 @@
     min-width: 80%;
     margin-bottom: 5%;
 }
+
+.DocumentItem {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: blue;
+}
+
+.DocumentPaper {
+    background: black;
+}
+
+.DocumentTitle {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.DocumentGrid {
+    margin-top: 3%;
+}
