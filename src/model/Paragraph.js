@@ -1,5 +1,3 @@
-import Sentence from './Sentence'
-
 class Paragraph{
     constructor(sentences, styles? = {}) {
         this.sentences = sentences;

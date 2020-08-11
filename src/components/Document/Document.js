@@ -8,7 +8,7 @@ class Document extends React.Component {
         <header>
           <h1>{this.props.document.title}</h1>
         </header>
-        <section contenteditable="true">
+        <section>
         {
           this.props.document.paragraphs.map((p, i) => {
               return <Paragraph index={i} paragraph={p} />
