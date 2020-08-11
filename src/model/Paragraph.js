@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-export function makeParagraph(text, styles? = {}) {
+export function makeParagraph(text, styles) {
   let p = {}
   p.text = text;
   p.styles = styles;
