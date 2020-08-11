@@ -8,7 +8,7 @@ class Document extends React.Component {
 
   render() {
     return (
-      <article styles={this.props.document.styles}>
+      <article styles={this.props.document}>
         <h1> {this.props.document.id} </h1>
         <header>
           <h1>{this.props.document.title}</h1>
@@ -16,7 +16,7 @@ class Document extends React.Component {
         <section>
         {
           this.props.document.paragraphs.map((p, i) => {
-              return <Paragraph index={i} paragraph={p} handleChange={this.handleChange}/>
+              return <Paragraph key={i} index={i} paragraph={p} handleChange={this.handleChange}/>
           })
         }
         </section>
