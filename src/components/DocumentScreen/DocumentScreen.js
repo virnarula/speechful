@@ -1,19 +1,19 @@
 import React from 'react'
 import json from '../../data/test2.json'
 import DocumentRender from '../Document/Document'
-import Document from '../../model/Document'
+import { makeDocument, updateParagraph } from '../../model/Document'
 
 class DocumentScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      document: Object.assign(new Document, json)
+      document: makeDocument(json.paragraphs, json.title)
     }
   }
-
-  handleDocumentChange = (dispatchChange) => {
+  
+  paragraphChange = (i, p) => {
     this.setState({
-      document: this.state.document.updateDocument(dispatchChange)
+      document: updateParagraph(this.state.document, i, p)
     })
   }
 
@@ -21,7 +21,7 @@ class DocumentScreen extends React.Component {
     return (
       <DocumentRender
         document={this.state.document}
-        documentWordChange={this.handleDocumentChange}
+        handleChange={this.paragraphChange}
       />
     )
   }  

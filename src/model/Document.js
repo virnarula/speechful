@@ -1,77 +1,29 @@
-import Paragraph from './Paragraph'
-
-class Document {
-    constructor(paragraphs, title, id, styles = {}) {
-        this.paragraphs = paragraphs;
-        this.title = title;
-        this.styles = styles;
-        this.id = id
-
-
-        // change dispatch format, should probably change to typescript but oops
-        // changeDispatch = {
-        //   changeType: "document" | "paragraph" | "sentence" | "word"
-        //   change: {
-        //     type values
-        //   }
-        //   location: {
-        //     paragraph: number
-        //     sentence: number
-        //     word: number
-        //   }
-        // }
-
-    }
-
-    updateDocument(dispatchChange) {
-        // Check for error in change
-        if (!this.isValidDispatchChange(dispatchChange)[0]) {
-            console.log(this.isValidDispatchChange(dispatchChange))
-        }
-    }
-
-    isValidDispatchChange(d) {
-        if (d.changeType === "document") {
-            if (("paragraphs" in d.change && "styles" in d.change) && "title" in d.change) {
-                return [true]
-            }
-            return [false, "Invalid object"]
-        }
-        else if (d.changeType === "paragraph") {
-            if ("paragraph" in d.location) {
-                if ("sentences" in d.change && "styles" in d.change) {
-                    return [true]
-                }
-                return [false, "Invalid object"]
-            }
-            else {
-                return [false, "Paragraph location not specified"]
-            }
-        }
-        else if (d.changeType === "sentence") {
-            if ("paragraph" in d.location && "sentence" in d.location) {
-                if ("words" in d.change && "styles" in d.change.key) {
-                    return [true]
-                }
-                return [false, "Invalid object"]
-            }
-            else {
-                return [false, "Sentence location not specified"]
-            }
-        }
-        else if (d.changeType === "word") {
-            if (("paragraph" in d.location && "sentence" in d.location) && "word" in d.location) {
-                if ("text" in d.change && "styles" in d.change) {
-                    return [true]
-                }
-                return [false, "Invalid key"]
-            }
-            else {
-                return [false, "Word location not specified"]
-            }
-        }
-        return [false, "Invalid change type"]
-    }
+import _ from 'lodash'  
+import { makeParagraph, changeWord, changeSentence } from './Paragraph'
+// These functions should never modify previous state, it should always return new state, ie they should be pure functions.
+// function(oldState, params) -> returns newState
+// use _.deepClone to ensure refs will change and we don't modify old state
+export function makeDocument(paragraphs, title) {
+  let d = {}
+  d.paragraphs = paragraphs.map(p => makeParagraph(p.text, p.style))
+  d.title = title;
+  return d;
 }
 
-export default Document;
+export function changeWordInParagraph(d, word, pi, wi) {
+  let newDoc = _.cloneDeep(d)
+  newDoc.paragraphs[pi] = changeWord(d.paragraphs[pi], word, wi)
+  return newDoc
+}
+
+export function changeSentenceInParagraph(d, sentence, pi, si) {
+  let newDoc = _.cloneDeep(d)
+  newDoc.paragraphs[pi] = changeSentence(d.paragraphs[pi], sentence, si)
+  return newDoc
+}
+
+export function updateParagraph(d, p, i) {
+  let newDoc = _.cloneDeep(d)
+  newDoc.paragraphs[i] = p
+  return newDoc
+}
