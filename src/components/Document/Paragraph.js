@@ -6,19 +6,17 @@ class Paragraph extends React.Component {
   }
 
   applyStyles = () => {
-    console.log(this.props)
     let computedTags = []
+    // yes this is vulnerable to xss, but its a hackathon project
     for (let i = 0; i < this.props.paragraph.styles.length; i++) {
       let start = {
-        tag: "<"+this.props.paragraph.styles[i].elem+">",
+        tag: "<span style=\""+this.props.paragraph.styles[i].style+"\">",
         i: this.props.paragraph.styles[i].range[0]
       }
       let end = {
-        tag: "</"+this.props.paragraph.styles[i].elem+">",
+        tag: "</span>",
         i: this.props.paragraph.styles[i].range[1]
       }
-
-      console.log(start)
 
       computedTags.push(start)
       computedTags.push(end)
@@ -33,8 +31,6 @@ class Paragraph extends React.Component {
       else return 0
     })
 
-    console.log(computedTags)
-
     let computedText = ""
     let prevIndex = 0
     for (let i = 0; i < computedTags.length; i++) {
@@ -42,7 +38,6 @@ class Paragraph extends React.Component {
       prevIndex = computedTags[i].i
     }
     computedText += this.props.paragraph.text.substring(prevIndex, this.props.paragraph.text.length)
-    console.log(computedText)
     return computedText
   }
 

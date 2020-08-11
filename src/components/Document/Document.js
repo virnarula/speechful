@@ -16,10 +16,20 @@ class Document extends React.Component {
         <section>
         {
           this.props.document.paragraphs.map((p, i) => {
-              return <Paragraph key={i} index={i} paragraph={p} handleChange={this.handleChange}/>
+              return (
+                <div key={p.key}>
+                  <Paragraph index={i} paragraph={p} handleChange={this.handleChange}/>
+                  <button onClick={() => this.props.removeParagraph(i)}>
+                    Remove Paragraph
+                  </button>
+                </div>
+              )
           })
         }
         </section>
+        <button onClick={this.props.addParagraph}>
+          Add Paragraph
+        </button>
       </article>
     )
   }

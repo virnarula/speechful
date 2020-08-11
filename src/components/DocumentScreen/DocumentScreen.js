@@ -1,7 +1,6 @@
 import React from 'react'
 import json from '../../data/test2.json'
 import DocumentRender from '../Document/Document'
-import { makeDocument, updateParagraph } from '../../model/Document'
 import 'react-split-pane'
 import SplitPane from 'react-split-pane'
 import { Button } from '@material-ui/core'
@@ -9,6 +8,7 @@ import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { sizing } from '@material-ui/system';
 import './DocumentScreen.css'
+import { makeDocument, updateParagraph, addParagraph, removeParagraph } from '../../model/Document'
 
 class DocumentScreen extends React.Component {
   constructor(props) {
@@ -21,6 +21,19 @@ class DocumentScreen extends React.Component {
   paragraphChange = (i, p) => {
     this.setState({
       document: updateParagraph(this.state.document, i, p)
+    })
+  }
+
+  addParagraph = () => {
+    this.setState({
+      document: addParagraph(this.state.document)
+    })
+  }
+  
+  removeParagraph = (i) => {
+    console.log("remove p" + i )
+    this.setState({
+      document: removeParagraph(this.state.document, i)
     })
   }
 
@@ -59,6 +72,8 @@ class DocumentScreen extends React.Component {
           <DocumentRender
             document={this.state.document}
             handleChange={this.paragraphChange}
+            addParagraph={this.addParagraph}
+            removeParagraph={this.removeParagraph}
           />
         </div>
       </SplitPane>
