@@ -7,13 +7,13 @@ class DocumentScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      document: Object.assign(new Document, json)
+      document: new Document(json.paragraphs, json.title)
     }
   }
-
-  handleDocumentChange = (dispatchChange) => {
+  
+  paragraphChange = (i, p) => {
     this.setState({
-      document: this.state.document.updateDocument(dispatchChange)
+      document: this.state.updateParagraph(i, p)
     })
   }
 
@@ -21,8 +21,9 @@ class DocumentScreen extends React.Component {
     return (
       <DocumentRender
         document={this.state.document}
-        documentWordChange={this.handleDocumentChange}
+        paragraphChange={this.paragraphChange}
       />
+      
     )
   }  
 }
