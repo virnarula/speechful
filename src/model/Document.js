@@ -1,10 +1,12 @@
 import Paragraph from './Paragraph'
 
 class Document {
-  constructor(paragraphs, title, styles? = {}) {
-      this.paragraphs = paragraphs;
-      this.title = title;
-  }
+    constructor(paragraphs, title, id, styles = {}) {
+        this.paragraphs = paragraphs;
+        this.title = title;
+        this.styles = styles;
+        this.id = id
+
 
   // change dispatch format, should probably change to typescript but oops
   // changeDispatch = {

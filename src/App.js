@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/home" component={HomeScreen}></Route>
-        <Route path="/document" component={DocumentScreen}></Route>
+        <Route path="/document/:id" component={DocumentScreen}  ></Route>
         <Route path="/" component={StartPage}></Route>
       </Switch>
     </Router>
