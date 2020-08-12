@@ -1,9 +1,26 @@
-import React, {useState, setState} from 'react'
+import React, {useState, setState, useEffect} from 'react'
 import SpeechRecognition, { useSpeechRecognition,  } from 'react-speech-recognition'
 
-const Dictaphone = () => {
-  const { transcript, resetTranscript } = useSpeechRecognition()
-  const [status, setStatus] = useState("Working");
+const Dictaphone = ({transcriptChangeHandler, commands}) => {
+    const [transcribing, setTranscribing] = useState(true)
+    const [clearTranscriptOnListen, setClearTranscriptOnListen] = useState(true)
+  
+    const {
+        transcript,
+        interimTranscript,
+        finalTranscript,
+        resetTranscript,
+        listening,
+      } = useSpeechRecognition({ transcribing, clearTranscriptOnListen, commands })
+
+  useEffect(() => {
+    if (interimTranscript !== '') {
+        console.log('Got interim result:', interimTranscript)
+      }
+    transcriptChangeHandler(transcript);
+  });
+
+  const [status, setStatus] = useState("");
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     setStatus("Not supported");
@@ -12,14 +29,8 @@ const Dictaphone = () => {
     );
   }
 
-  return (
-    <div>
-      <button onClick={SpeechRecognition.startListening({ continuous: true })}>Start</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop</button>
-      <button onClick={resetTranscript}>Reset</button>
-      <p>{transcript}</p>
-      <p>{status}</p>
-    </div>
-  )
+  SpeechRecognition.startListening({ continuous: true });
+
+  return (<p></p>);
 }
 export default Dictaphone
