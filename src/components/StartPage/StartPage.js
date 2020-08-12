@@ -1,18 +1,14 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import './StartPage.css'
+import StartDictaphone from '../../speech/StartDictaphone'
 
 function StartPage () {
     return (
     <div className="StartPage">
       <header className="App-header">
-        <p> Welcome to Speechful!</p>
-          <Button
-            variant='contained'
-            color="primary"
-            href="/home">
-            Click Here to get started
-          </Button>
+        <h3> Say "Hello" to get started!</h3>
+          <StartDictaphone />
       </header>
     </div>
     );

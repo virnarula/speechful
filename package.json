@@ -23,7 +23,8 @@
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.2",
+    "react-scripts": "3.4.1",
+    "react-speech-recognition": "^3.1.0",
     "react-split-pane": "^0.1.92",
     "wait-on": "^5.1.0"
   },

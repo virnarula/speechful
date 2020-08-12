@@ -8,14 +8,24 @@ import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { sizing } from '@material-ui/system';
 import './DocumentScreen.css'
+import SpeechRecognition, { useSpeechRecognition,  } from 'react-speech-recognition'
+import Dictaphone from '../../speech/Dictaphone'
 import { makeDocument, updateParagraph, addParagraph, removeParagraph } from '../../model/Document'
+
 
 class DocumentScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      document: makeDocument(json.paragraphs, json.title)
+      document: makeDocument(json.paragraphs, json.title),
+      transcript: ""
     }
+  }
+
+  transcriptChange = (t) => {
+    this.setState({
+      transcript: t
+    })
   }
 
   paragraphChange = (i, p) => {
@@ -57,6 +67,7 @@ class DocumentScreen extends React.Component {
           <div class="circle">
             <FontAwesomeIcon icon={faMicrophone} />
           </div>
+          <Dictaphone transcriptChangeHandler={this.transcriptChange} />
 
           <Button
             variant="contained"
@@ -69,6 +80,7 @@ class DocumentScreen extends React.Component {
           </Button>
         </div>
         <div class="document-pane">
+          {this.state.transcript}
           <DocumentRender
             document={this.state.document}
             handleChange={this.paragraphChange}
