@@ -33,4 +33,8 @@ const Dictaphone = ({transcriptChangeHandler, commands}) => {
 
   return (<p></p>);
 }
+
+const startListening = () => {
+  SpeechRecognition.startListening({ continuous: true })
+}
 export default Dictaphone

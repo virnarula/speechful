@@ -1,31 +1,18 @@
 import React from 'react'
-import { Grid, Paper, Button, makeStyles } from '@material-ui/core/'
 import './HomeScreen.css'
-import SearchBar from 'material-ui-search-bar'
 import json from '../../data/test1.json'
-import Document from '../../model/Document'
-
-const useStyles = makeStyles(theme => ({
-    paperRoot: {
-        backgroundColor:"red"
-    }
-}));
+import logo from '../../res/logo.svg'
 
 function HomeScreen() {
     let documents = getDocumentList();
     return (
         <div className="HomeScreen">
-            <h1> Documents </h1>
-            <SearchBar
-                className="SearchBar"
-            />
-            <Button
-                variant="contained"
-                color="primary"
-                href="/document">
-                + Create New Document
-            </Button>
-            <DocumentGrid className="DocumentGrid" documentList={getDocumentList()} />
+            <header>
+                <img src={logo}></img>
+                <h1 className="SpeechfulHeader"> Speechful </h1>
+                <h1> Documents </h1>
+            </header>
+            <DocumentGrid documentList={getDocumentList()} />
         </div>
     );
 }
@@ -33,12 +20,27 @@ function HomeScreen() {
 class DocumentItem extends React.Component {
     render() {
         return (
-            <div className="DocumentItem">
-                <Paper 
-                    className="DocumentPaper">
-                    <h1 className="DocumentTitle"> { this.props.document.title } </h1>
-                    <a href={getDocumentUrl(this.props.document.id)}>Open file</a>
-                </Paper>
+            <a href={getDocumentUrl(this.props.document.id)} style={{textDecoration: 'none'}}>
+                <div className="DocumentItem" >
+                    <h1 className="DocumentTitle"> {this.props.document.title} </h1>
+                    <p>Edited: </p>
+                    <p>Created: </p>
+                    <p><br /></p>
+                    <p>Words: </p>
+                    <p>Paragraphs: </p>
+                    {/* <a href={getDocumentUrl(this.props.document.id)}>Open file</a> */}
+                </div>
+            </a>
+        );
+    }
+}
+
+class CreateDocumentItem extends React.Component {
+    render() {
+        return (
+            <div className="CreateDocumentItem">
+                <h1> + </h1>
+                <h2>Create New Document</h2>
             </div>
         );
     }
@@ -49,20 +51,15 @@ function getDocumentUrl(id) {
 }
 
 class DocumentGrid extends React.Component {
-
-
     render() {
         return (
             <div className="DocumentGrid">
-                <Grid container spacing={3} className="DocumentGrid">
-                    <Grid item xs={12}>
-                        {
-                            this.props.documentList.map((p, i) => {
-                                return <DocumentItem document={p}/>
-                            })
-                        }
-                    </Grid>
-                </Grid>
+                <CreateDocumentItem />
+                {
+                    this.props.documentList.map((p, i) => {
+                        return <DocumentItem document={p} />
+                    })
+                }
             </div>
         );
     }

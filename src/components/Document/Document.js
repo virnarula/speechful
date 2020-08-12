@@ -8,7 +8,7 @@ class Document extends React.Component {
 
   render() {
     return (
-      <article styles={this.props.document}>
+      <article>
         <h1> {this.props.document.id} </h1>
         <header>
           <h1>{this.props.document.title}</h1>
@@ -17,18 +17,21 @@ class Document extends React.Component {
         {
           this.props.document.paragraphs.map((p, i) => {
               return (
-                <div key={p.key}>
+                <div className="paragraph-container" key={p.key}>
+                  <div className="side-container">
+                    <span>{i+1}</span>
+                    <button className="button-remove" onClick={() => this.props.removeParagraph(i)}>
+                      X
+                    </button>
+                  </div>
                   <Paragraph index={i} paragraph={p} handleChange={this.handleChange}/>
-                  <button onClick={() => this.props.removeParagraph(i)}>
-                    Remove Paragraph
-                  </button>
                 </div>
               )
           })
         }
         </section>
-        <button onClick={this.props.addParagraph}>
-          Add Paragraph
+        <button className="button-add" onClick={this.props.addParagraph}>
+          + Add Paragraph
         </button>
       </article>
     )

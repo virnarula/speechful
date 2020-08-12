@@ -1,17 +1,22 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
+import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './StartPage.css'
 import StartDictaphone from '../../speech/StartDictaphone'
 
-function StartPage () {
-    return (
+function StartPage() {
+  return (
     <div className="StartPage">
+      <h1 >Say "Hello"</h1>
       <header className="App-header">
-        <h3> Say "Hello" to get started!</h3>
-          <StartDictaphone />
+        <StartDictaphone />
       </header>
+      <div className="circle">
+        <FontAwesomeIcon icon={faMicrophone} />
+      </div>
     </div>
-    );
+  );
 }
 
 export default StartPage;

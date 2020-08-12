@@ -46,7 +46,6 @@ class Paragraph extends React.Component {
   render() {
     return (
       <div>
-        paragraph {this.props.index}
         <p contentEditable onInput={this.changeState} dangerouslySetInnerHTML={{__html:this.applyStyles()}} />
       </div>
     )

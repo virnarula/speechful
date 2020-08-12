@@ -1,6 +1,6 @@
 .StartPage {
     text-align: center;
-    background-color: #282c34;
+    background-color: white;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -8,4 +8,24 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+}
+
+.StartPage > h1 {
+    color: #20BD67;
+    padding-bottom: 0;
+    font-weight: 500;
+}
+
+.logo {
+    height: 35vh;
+    width: auto;
+}
+
+.StartPage > .circle {
+    background-color: #C2FFDE;
+    border-radius: 50%;
+    height: 15vh;
+    width: 15vh;
+    margin-bottom: 3vh;
+    color: #20BD67
 }
