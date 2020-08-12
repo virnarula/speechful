@@ -1,7 +1,8 @@
 import React from 'react'
 import './HomeScreen.css'
-import json from '../../data/test1.json'
+import json from '../../data/test2.json'
 import logo from '../../res/logo.svg'
+import HomeDictaphone from '../../speech/HomeDictaphone'
 
 function HomeScreen() {
     let documents = getDocumentList();
@@ -13,6 +14,7 @@ function HomeScreen() {
                 <h1> Documents </h1>
             </header>
             <DocumentGrid documentList={getDocumentList()} />
+            <HomeDictaphone actionHandler={actionHandler}/>
         </div>
     );
 }
@@ -23,12 +25,9 @@ class DocumentItem extends React.Component {
             <a href={getDocumentUrl(this.props.document.id)} style={{textDecoration: 'none'}}>
                 <div className="DocumentItem" >
                     <h1 className="DocumentTitle"> {this.props.document.title} </h1>
-                    <p>Edited: </p>
-                    <p>Created: </p>
-                    <p><br /></p>
-                    <p>Words: </p>
-                    <p>Paragraphs: </p>
-                    {/* <a href={getDocumentUrl(this.props.document.id)}>Open file</a> */}
+                    <p>{this.props.document.paragraphs[0].text.substring(0, 50)}...</p>
+                    <p>Words: {this.props.document.paragraphs.map(e => e.text.split(" ").length).reduce((acc, c) => acc + c)}</p>
+                    <p>Paragraphs: {this.props.document.paragraphs.length}</p>
                 </div>
             </a>
         );
@@ -38,7 +37,7 @@ class DocumentItem extends React.Component {
 class CreateDocumentItem extends React.Component {
     render() {
         return (
-            <div className="CreateDocumentItem">
+            <div className="CreateDocumentItem DocumentItem">
                 <h1> + </h1>
                 <h2>Create New Document</h2>
             </div>
@@ -65,8 +64,12 @@ class DocumentGrid extends React.Component {
     }
 }
 
+function actionHandler(action) {
+    console.log(action)
+}
+
 function getDocumentList() {
-    return [json, json];
+    return [json, json, json, json, json, json];
 }
 
 export default HomeScreen;

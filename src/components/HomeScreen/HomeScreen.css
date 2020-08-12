@@ -30,6 +30,7 @@
 }
 
 .DocumentItem {
+    margin: 25px;
     text-align: left;
     padding-left: 10px;
     padding-right: 10px;
@@ -43,26 +44,21 @@
     text-decoration: none;
 }
 
-.DocumentItem p {
-    color: #354456;
+.DocumentItem > p {
+  font-weight: bold;
+  color: #777;
+  margin: 5px 0;
 }
 
 
 .CreateDocumentItem {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px -3px 0px #5CD3A8, 0px 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    background-color: #C1FFDD;
-    height: 250px;
-    width: 200px;
+  text-align: center;  
+  background-color: #C1FFDD;
 }
 
 .CreateDocumentItem > h1 {
     color: #20BD67;
     font-size: 50px;
-    margin-bottom: 25px;
 }
 
 .CreateDocumentItem > h2 {
@@ -75,15 +71,17 @@
     padding-left: 2%;
     padding-right: 2%;
     font-size: 25px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    justify-content: space-around;
 }
 
 .DocumentGrid {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     margin-top: 3%;
-    width: 800px;
-    height: auto;
-    flex-flow: row;
+    justify-content: space-around;
+    width: 80vw;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding-bottom: 20vh;
 }

@@ -30,7 +30,7 @@ export function updateParagraph(d, p, i) {
 
 export function addParagraph(d) {
   let newDoc = _.cloneDeep(d)
-  newDoc.paragraphs.push(makeParagraph(`New paragraph`, []))
+  newDoc.paragraphs.push(makeParagraph("", []))
   return newDoc
 }
 
