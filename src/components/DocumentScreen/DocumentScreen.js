@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { sizing } from '@material-ui/system';
 import './DocumentScreen.css'
 import SpeechRecognition, { useSpeechRecognition,  } from 'react-speech-recognition'
-import Dictaphone from '../../speech/Dictaphone'
+import DocumentDictaphone from '../../speech/DocumentDictaphone'
 import { makeDocument, updateParagraph, addParagraph, removeParagraph } from '../../model/Document'
 
 
@@ -47,6 +47,10 @@ class DocumentScreen extends React.Component {
     })
   }
 
+  actionHandler = (action) => {
+    console.log(action)
+  }
+
   render() {
     return (
       <div className="document-view">
@@ -66,12 +70,7 @@ class DocumentScreen extends React.Component {
             removeParagraph={this.removeParagraph}
           />
         </div>
-        <footer>
-          <div className="circle">
-            <FontAwesomeIcon icon={faMicrophone} /> 
-          </div>
-          blah blah blah <span className="command">&nbsp;command!</span>
-        </footer>
+        <DocumentDictaphone actionHandler={this.actionHandler}/>
       </div>
     )
   }

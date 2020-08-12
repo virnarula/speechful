@@ -9,9 +9,8 @@ class Document extends React.Component {
   render() {
     return (
       <article>
-        <h1> {this.props.document.id} </h1>
         <header>
-          <h1>{this.props.document.title}</h1>
+          <h1 class="document-title">{this.props.document.title}</h1>
         </header>
         <section>
         {

@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import Dictaphone from './Dictaphone'
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./DictaphoneStyle.css"
 
-const StartDictaphone = () => {
+//call in this.props.actionHandler(action) to send an action to the parent document component for changes to the document
+const HomeDictaphone = () => {
   const [message, setMessage] = useState('')
   const commands = [
     {
@@ -17,14 +19,14 @@ const StartDictaphone = () => {
   ]
 
   return (
-    <div>
-      <div className="circle">
-        <FontAwesomeIcon icon={faMicrophone} />
-      </div>
-      <Dictaphone commands={commands} transcriptChangeHandler={console.log}/>
-      <p>{message}</p>
-    </div>
+      <footer>
+        <Dictaphone commands={commands} transcriptChangeHandler={console.log}/>
+        <div className="circle">
+          <FontAwesomeIcon icon={faMicrophone} /> 
+        </div>
+        {message} <span className="command">&nbsp;command!</span>
+      </footer>
   )
 }
 
-export default StartDictaphone
+export default HomeDictaphone
