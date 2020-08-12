@@ -27,3 +27,15 @@ export function updateParagraph(d, p, i) {
   newDoc.paragraphs[i] = p
   return newDoc
 }
+
+export function addParagraph(d) {
+  let newDoc = _.cloneDeep(d)
+  newDoc.paragraphs.push(makeParagraph(" ", []))
+  return newDoc
+}
+
+export function removeParagraph(d, i) {
+  let newDoc = _.cloneDeep(d)
+  newDoc.paragraphs.splice(i, 1)
+  return newDoc
+}
