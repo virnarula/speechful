@@ -4,6 +4,10 @@ export function makeParagraph(text, styles) {
   let p = {}
   p.text = text;
   p.styles = styles;
+  
+  // This for internal use to make react renders consistent and more efficient
+  p.key = Math.random();
+
   return p
 }
 
