@@ -1,38 +1,92 @@
-.tool-pane {
-    background-color: #282c34;
-    height: 100vh;
-    flex-direction: column;
-    /* padding-left: 10px;
-    padding-right: 10px; */
-    /* padding-top: 5px; */
-    border-bottom: 15px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: space-between;
+nav {
+  padding-top: 4vh;
+  padding-bottom: 1vh;
+  height: 5vh;
+  font-size: 16pt;
+  display: flex;
+  color: #20BD67;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 80vw;
 }
 
-.document-pane {
-    padding-left: 20px;
-    border-radius: 25px;
+nav > a {
+  padding-right: 30px;
+  color: #20BD67;
+  text-decoration: none;
 }
 
-.document-title {
-    color: white;
-    text-align: center;
-    font-size: 4vh;
+footer {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 66vw;
 }
 
 .circle {
-    background-color: #461e69;
-    height: 20vh;
-    width: 20vh;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    color: aliceblue;
-    font-size: 40px;
+  background-color: #C2FFDE;
+  color: #20BD67;
+  height: 8vh;
+  width: 8vh;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.command {
+  color: #20BD67;
+}
+
+/* DOCUMENT STYLING */
+.document-pane {
+  height: 70vh;
+  margin: 0 auto;
+  width: 66vw;
+}
+
+.paragraph-container {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+.button-remove {
+  border: none;
+  background-color: white;
+  color: red;
+}
+
+p {
+  margin: 0;
+  min-height: 20px;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.side-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-add {
+  border: none;
+  background-color: white;
+  color: #20BD67;
+  display: block;
+}
+
+button:focus {
+  outline: none;
+}
+
+p:focus {
+  outline: none;
+  box-shadow: inset 0px 0px 2px 1px #20BD67;
 }

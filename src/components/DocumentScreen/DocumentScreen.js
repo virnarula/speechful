@@ -49,38 +49,16 @@ class DocumentScreen extends React.Component {
 
   render() {
     return (
-      <SplitPane split="vertical" defaultSize={250}>
-        <div class="tool-pane">
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth={true}
-            href="/home"
-            height="100%">
-            Go home
-          </Button>
-
-          <h1 class="document-title"> {this.state.document.title}</h1>
-
-          <h1 class="document-title">Currently Viewing Full Document</h1>
-
-          <div class="circle">
-            <FontAwesomeIcon icon={faMicrophone} />
-          </div>
-          <Dictaphone transcriptChangeHandler={this.transcriptChange} />
-
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => {
-              console.log("click");
-            }}
-            fullWidth={true}>
-            Save file
-          </Button>
-        </div>
-        <div class="document-pane">
-          {this.state.transcript}
+      <div className="document-view">
+        <nav>
+          <a href="/home">
+            &lt; Back
+          </a>
+          <a onClick={() => console.log("save")}>
+            Save
+          </a>
+        </nav>
+        <div className="document-pane">
           <DocumentRender
             document={this.state.document}
             handleChange={this.paragraphChange}
@@ -88,7 +66,13 @@ class DocumentScreen extends React.Component {
             removeParagraph={this.removeParagraph}
           />
         </div>
-      </SplitPane>
+        <footer>
+          <div className="circle">
+            <FontAwesomeIcon icon={faMicrophone} /> 
+          </div>
+          blah blah blah <span className="command">&nbsp;command!</span>
+        </footer>
+      </div>
     )
   }
 }
