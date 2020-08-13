@@ -3,10 +3,11 @@ import { makeParagraph, changeWord, changeSentence } from './Paragraph'
 // These functions should never modify previous state, it should always return new state, ie they should be pure functions.
 // function(oldState, params) -> returns newState
 // use _.deepClone to ensure refs will change and we don't modify old state
-export function makeDocument(paragraphs, title) {
+export function makeDocument(paragraphs, title, id) {
   let d = {}
   d.paragraphs = paragraphs.map(p => makeParagraph(p.text, p.styles))
   d.title = title;
+  d.id = id;
   return d;
 }
 

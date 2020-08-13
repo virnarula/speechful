@@ -1,22 +1,43 @@
 import React from 'react'
 import './HomeScreen.css'
-import json from '../../data/test2.json'
+import jsonData from '../../data/test2.json'
 import logo from '../../res/logo.svg'
 import HomeDictaphone from '../../speech/HomeDictaphone'
 
-function HomeScreen() {
-    let documents = getDocumentList();
-    return (
-        <div className="HomeScreen">
-            <header>
-                <img src={logo}></img>
-                <h1 className="SpeechfulHeader"> Speechful </h1>
-                <h1> Documents </h1>
-            </header>
-            <DocumentGrid documentList={getDocumentList()} />
-            <HomeDictaphone actionHandler={actionHandler}/>
-        </div>
-    );
+class HomeScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            documents: getDocumentList()
+        }
+    }
+
+    documentListChange = (d) => {
+        this.setState({
+          documents: d
+        })
+    }
+
+    saveDocuments = () => {
+        localStorage.documents = JSON.stringify(this.state.documents);
+        console.log("Document Saved");
+    }
+
+    render() {
+        return (
+            <div className="HomeScreen">
+                <header>
+                    <img src={logo}></img>
+                    <h1 className="SpeechfulHeader"> Speechful </h1>
+                    <h1> Documents </h1>
+                </header>
+                <DocumentGrid documentList={this.state.documents} 
+                documentListChangeHandler={this.documentListChange}
+                saveHandler={this.saveDocuments}/>
+                <HomeDictaphone actionHandler={actionHandler}/>
+            </div>
+        );
+    }
 }
 
 class DocumentItem extends React.Component {
@@ -69,7 +90,25 @@ function actionHandler(action) {
 }
 
 function getDocumentList() {
-    return [json, json, json, json, json, json];
+    
+
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    if (i == 0) {
+        console.log("Added example doc");
+        localStorage.setItem("doc"+jsonData.id, JSON.stringify(jsonData));
+        keys = Object.keys(localStorage);
+        i = keys.length;
+    }
+
+    while ( i-- ) {
+        values.push( JSON.parse(localStorage.getItem(keys[i])) );
+    }
+
+    return values;
 }
 
 export default HomeScreen;
