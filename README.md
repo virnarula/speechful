@@ -20,23 +20,23 @@ Speechful is a document editing intened to help those who cannot use keyboards. 
 
 Once you open a document, you can simply a command such as "type" or "navigate" follow by with what you would like to type or navigate. Once you finish your setence, you tell Speechful to bold sentences, add punctation after a certain word, and most importantly, change words that were misunderstood.
 
-For HackThis, we have made an MVP that runs in the browser to serve as a proof of concept. The final product will be a stand-alone application. Speech recognition is also currently limited to basic commands. With more time, more complex commands will be added. Here are some screenshots of the MVP
+For HackThis, we have an MVP that runs in the browser to serve as a proof of concept. The final product will be a stand-alone application. Speech recognition is also currently limited to basic commands. With more time, more complex commands will be added. Here are some screenshots of the MVP:
 
 < Insert Screenshots here >
 
 ## Technologies & Frameworks
-The front-end of this application is built with [React](https://reactjs.org/). For natural language processing, we are using [Google Speech](https://cloud.google.com/speech-to-text). Design element dependancies include: [Material-UI](https://material-ui.com/) and [FontAwesome](https://fontawesome.com/).
+The front-end of this application is built with [React](https://reactjs.org/). For natural language processing, we are using [Mozilla's Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API). Design element dependancies include: [Material-UI](https://material-ui.com/) and [FontAwesome](https://fontawesome.com/).
 
 ## Contribute
 In order to set up the project for contribution, run:
 1. `git clone https://github.com/virnarula/speechful.git` to clone this repository
 1. `cd speechful` to enter the `/speechful` directory.
 1. `npm install` to install all the dependencies of the project
-1. `npm run start` to launch the electron applicaton.
+1. `npm run start` to launch the development server.
 1. If it doesn't happen automatically, open `localhost:3000` in your browser.
 1. Voila!
 
-In regards to code styling, please use [Google's JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html) as the rest of the repo does.
+This repo uses the [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html).
 
 ## File Structure
 This project is set up like a traditional react project. This is a high-level overview of the file strucutre. Trivial files and directories will be omitted for simplicity.
