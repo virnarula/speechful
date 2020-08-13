@@ -25,7 +25,7 @@ For HackThis, we have an MVP that runs in the browser to serve as a proof of con
 < Insert Screenshots here >
 
 ## Technologies & Frameworks
-The front-end of this application is built with [React](https://reactjs.org/). For natural language processing, we are using [Mozilla's Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API). Design element dependancies include: [Material-UI](https://material-ui.com/) and [FontAwesome](https://fontawesome.com/).
+The front-end of this application is built with [React](https://reactjs.org/). For natural language processing, we are using [Google Speech](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API). Design element dependancies include: [Material-UI](https://material-ui.com/) and [FontAwesome](https://fontawesome.com/).
 
 ## Contribute
 In order to set up the project for contribution, run:
