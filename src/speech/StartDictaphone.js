@@ -8,10 +8,9 @@ const StartDictaphone = () => {
   const commands = [
     {
       command: 'Hello',
-      callback: (food) => { setMessage(`Welcome to Speechful!`); 
-      setTimeout(function(){
+      callback: (food) => { 
         document.location.href = document.location.href+"home";
-    }, 1000); },
+      },
       matchInterim: true
     }
   ]
