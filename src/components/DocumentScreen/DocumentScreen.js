@@ -16,8 +16,11 @@ import { makeDocument, updateParagraph, addParagraph, removeParagraph } from '..
 class DocumentScreen extends React.Component {
   constructor(props) {
     super(props)
+    let url = window.location.href;
+    let doc = JSON.parse(localStorage.getItem("doc"+url.slice(url.lastIndexOf(':') + 1)));
+
     this.state = {
-      document: makeDocument(json.paragraphs, json.title),
+      document: makeDocument(doc.paragraphs, doc.title, doc.id),
       transcript: ""
     }
   }
@@ -29,6 +32,8 @@ class DocumentScreen extends React.Component {
   }
 
   paragraphChange = (i, p) => {
+    // Something about this code is off, updateParagraph has i and p swapped in its function definition in Document
+    console.log("Paragraph changing");
     this.setState({
       document: updateParagraph(this.state.document, i, p)
     })
@@ -51,6 +56,10 @@ class DocumentScreen extends React.Component {
     console.log(action)
   }
 
+  saveDocument = () => {
+    localStorage.setItem("doc"+this.state.document.id, JSON.stringify(this.state.document));
+  }
+
   render() {
     return (
       <div className="document-view">
@@ -58,7 +67,7 @@ class DocumentScreen extends React.Component {
           <a href="/home">
             &lt; Back
           </a>
-          <a onClick={() => console.log("save")}>
+          <a style={{cursor: "pointer"}} onClick={this.saveDocument()}>
             Save
           </a>
         </nav>
