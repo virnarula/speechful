@@ -10,7 +10,7 @@ import { sizing } from '@material-ui/system';
 import './DocumentScreen.css'
 import SpeechRecognition, { useSpeechRecognition,  } from 'react-speech-recognition'
 import DocumentDictaphone from '../../speech/DocumentDictaphone'
-import { makeDocument, updateParagraph, addParagraph, removeParagraph } from '../../model/Document'
+import { makeDocument, updateParagraph, addParagraph, removeParagraph, appendToParagraph } from '../../model/Document'
 
 
 class DocumentScreen extends React.Component {
@@ -25,10 +25,11 @@ class DocumentScreen extends React.Component {
     }
   }
 
-  transcriptChange = (t) => {
+  transcriptUpdater = (t) => {
     this.setState({
-      transcript: t
+      document: appendToParagraph(this.state.document, t, 0)
     })
+    console.log(appendToParagraph(this.state.document, t, 0))
   }
 
   paragraphChange = (i, p) => {
@@ -79,7 +80,7 @@ class DocumentScreen extends React.Component {
             removeParagraph={this.removeParagraph}
           />
         </div>
-        <DocumentDictaphone actionHandler={this.actionHandler}/>
+        <DocumentDictaphone transcriptUpdater={this.transcriptUpdater} actionHandler={this.actionHandler}/>
       </div>
     )
   }

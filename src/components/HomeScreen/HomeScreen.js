@@ -67,7 +67,7 @@ class CreateDocumentItem extends React.Component {
 }
 
 function getDocumentUrl(id) {
-    return "/document/:" + id.toString();
+    return "/document/" + id.toString();
 }
 
 class DocumentGrid extends React.Component {
@@ -77,7 +77,7 @@ class DocumentGrid extends React.Component {
                 <CreateDocumentItem />
                 {
                     this.props.documentList.map((p, i) => {
-                        return <DocumentItem document={p} />
+                        return <DocumentItem key={i} document={p} />
                     })
                 }
             </div>
