@@ -23,9 +23,11 @@ export function changeSentenceInParagraph(d, sentence, pi, si) {
   return newDoc
 }
 
-export function updateParagraph(d, p, i) {
+export function updateParagraph(d, i, p) {
   let newDoc = _.cloneDeep(d)
-  newDoc.paragraphs[i] = p
+  console.log(newDoc);
+  newDoc.paragraphs[i].text = p
+  console.log(i);
   return newDoc
 }
 

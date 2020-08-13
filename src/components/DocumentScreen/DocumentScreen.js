@@ -32,6 +32,8 @@ class DocumentScreen extends React.Component {
   }
 
   paragraphChange = (i, p) => {
+    // Something about this code is off, updateParagraph has i and p swapped in its function definition in Document
+    console.log("Paragraph changing");
     this.setState({
       document: updateParagraph(this.state.document, i, p)
     })
