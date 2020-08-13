@@ -5,11 +5,11 @@
 A speech-based document editing tool intened for those who cannot use keyboards. 
 
 ## Table of Contents
-1. [Project Aims](#Project\ Aims)
-1. [Overview](#Overview)
-1. [Technologies & Frameworks](#Technologies\ &\ Frameworks)
-1. [Contribute](#Setup)
-1. [File Structure](#File\ Structure)
+1. [Project Aims](#project-aims)
+1. [Overview](#overview)
+1. [Technologies & Frameworks](#technologies--frameworks)
+1. [Contribute](#contribute)
+1. [File Structure](#file-structure)
 1. [License](#License)
 
 ## Project Aims
