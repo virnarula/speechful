@@ -83,6 +83,18 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
         document.location.href = document.location.origin+"/home"
       }
     },
+    {
+      command: 'change title *',
+      highlight: new RegExp("change title", 'gi'),
+      callback: (title) => {
+        actionHandler ({
+          action: "CHANGE_TITLE",
+          payload: {
+            newTitle: title
+          }
+        })
+      }
+    }
   ]
   
   useEffect(() => {

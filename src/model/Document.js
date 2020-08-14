@@ -1,5 +1,6 @@
 import _ from 'lodash'  
 import * as Paragraph from './Paragraph'
+import { getDefaultNormalizer } from '@testing-library/react';
 // These functions should never modify previous state, it should always return new state, ie they should be pure functions.
 // function(oldState, params) -> returns newState
 // use _.deepClone to ensure refs will change and we don't modify old state
@@ -49,6 +50,12 @@ function removeParagraph(d, i) {
   return newDoc
 }
 
+function changeTitle(document, newTitle) {
+  let newDoc = _.cloneDeep(document)
+  newDoc.title = newTitle
+  return newDoc
+}
+
 export {
   makeDocument,
   appendToParagraph,
@@ -56,5 +63,6 @@ export {
   changeSentenceInParagraph,
   updateParagraph,
   addParagraph,
-  removeParagraph
+  removeParagraph,
+  changeTitle
 }

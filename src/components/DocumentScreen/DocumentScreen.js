@@ -10,7 +10,7 @@ import { sizing } from '@material-ui/system';
 import './DocumentScreen.css'
 import SpeechRecognition, { useSpeechRecognition,  } from 'react-speech-recognition'
 import DocumentDictaphone from '../../speech/DocumentDictaphone'
-import { makeDocument, updateParagraph, addParagraph, removeParagraph, appendToParagraph } from '../../model/Document'
+import { makeDocument, updateParagraph, addParagraph, removeParagraph, appendToParagraph, changeTitle } from '../../model/Document'
 
 
 class DocumentScreen extends React.Component {
@@ -53,6 +53,13 @@ class DocumentScreen extends React.Component {
     })
   }
 
+  changeTitle = (title) => {
+    console.log("Change title to: " + title)
+    this.setState({
+      document: changeTitle(this.state.document, capitalizeWords(title))
+    })
+  }
+
   actionHandler = (a) => {
     if(a.action === "SAVE") {
       this.saveDocument()
@@ -62,6 +69,9 @@ class DocumentScreen extends React.Component {
     }
     else if(a.action === "ADD_PARAGRAPH") {
       this.addParagraph()
+    }
+    else if (a.action === "CHANGE_TITLE") {
+      this.changeTitle(a.payload.newTitle)
     }
   }
 
@@ -98,7 +108,14 @@ function replacePunctuation (unedited) {
   unedited = unedited.replace(" comma", ",") 
   unedited = unedited.replace(" period", ".")
   unedited = unedited.replace("quotation", "\"")
+  unedited = unedited.replace(" exclamation", "!")
   return unedited
 }
+
+function capitalizeWords(str)
+{
+ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 
 export default DocumentScreen;
