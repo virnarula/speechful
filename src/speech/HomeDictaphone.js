@@ -8,6 +8,7 @@ import { random } from 'lodash';
 //call in actionHandler(action) to send an action to the parent document component for changes to the document
 const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
   const [transcript, setTranscript] = useState('')
+  const [message, setMessage] = useState('')
   const [finalTranscript, setFinalTranscript] = useState('')
   const commands = [
     {
