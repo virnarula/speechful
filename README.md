@@ -46,7 +46,7 @@ Currently supported voice functionality:
 - [x] Add paragraph - "Add paragraph"
 - [x] Real-time punctuation - comma, period, quotaiton are mapped to ,." respectively
 - [x] Remove paragraph - "Remove paragraph (index)"
-- [x] Remove word - "Remove word (word) from paragraph (index)"
+- [x] Remove word - "Remove (word) from paragraph (index)"
 - [x] Replace word - "Replace (old word) with (new word) in paragraph (index)"
 - [x] Bold word - "Bold (word) in paragraph (index)
 - [x] Move cursor - "Move cursor to paragraph (index)"
