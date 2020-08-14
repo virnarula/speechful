@@ -3,7 +3,7 @@ import SpeechRecognition, { useSpeechRecognition,  } from 'react-speech-recognit
 
 const Dictaphone = ({transcriptChangeHandler, commands, finalTranscriptChangeHandler}) => {
     const [transcribing, setTranscribing] = useState(true)
-    const [clearTranscriptOnListen, setClearTranscriptOnListen] = useState(true)
+    const [clearTranscriptOnListen, setClearTranscriptOnListen] = useState(false)
   
     const {
         transcript,

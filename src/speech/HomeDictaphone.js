@@ -10,24 +10,30 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
   const [finalTranscript, setFinalTranscript] = useState('')
   const commands = [
     {
-      command: 'select (document) :id',
-      callback: (id) => {
-        document.location.href = document.location.origin+"/document/"+id;
-      }
+      command: '(*) select (document) :id',
+      highlight: new RegExp('\\bselect document\\b', 'gi'),
+      callback: (_, id) => openDocument(id)
+    },
+    {
+      command: '(*) open (document) :id',
+      highlight: new RegExp('\\bopen document\\b', 'gi'),
+      callback: (_, id) => openDocument(id)
     }
   ]
 
-  console.log(transcript)
-  
   return (
     <footer>
       <Dictaphone commands={commands} transcriptChangeHandler={setTranscript} finalTranscriptChangeHandler={setFinalTranscript}/>
       <div className="circle">
         <FontAwesomeIcon icon={faMicrophone} /> 
       </div>
-      {highlightCommands(getLastWords(transcript, 10))}
+      {highlightCommands(getLastWords(transcript, 15), commands)}
     </footer>
   )
+}
+
+const openDocument = (id) => {
+  document.location.href = document.location.origin+"/document/"+id;
 }
 
 const getLastWords = (transcript, n) => {
@@ -36,8 +42,23 @@ const getLastWords = (transcript, n) => {
 }
 
 const highlightCommands = (transcript, commands) => {
-  //commands.map(c => c.command)
-  return transcript
+  return transcript  
+
+  /*let regexes = commands.map(c => c.highlight)
+    if (!regexes.length) {
+        return transcript;
+    }
+    let split = transcript.split(regexes[0]);
+    // Only needed if matches are case insensitive and we need to preserve the
+    // case of the original match
+    let replacements = transcript.match(regexes[0]);
+    let result = [];
+    for (let i = 0; i < split.length - 1; i++) {
+        result.push(highlightCommands(split[i], regexes.slice(1)));
+        result.push(<span className="command">{" "+replacements[i]+" "}</span>);
+    }
+    result.push(highlightCommands(split[split.length - 1], regexes.slice(1)));
+    return result;*/
 }
 
 export default DocumentDictaphone

@@ -7,7 +7,7 @@ const StartDictaphone = () => {
   const [message, setMessage] = useState('')
   const commands = [
     {
-      command: 'Hello',
+      command: '(*) hello',
       callback: (food) => { 
         document.location.href = document.location.href+"home";
       },
