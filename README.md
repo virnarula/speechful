@@ -40,7 +40,7 @@ Currently supported voice functionality:
 - [x] Create document - "Create new document"
 - [x] Save document - "Save"
 - [x] Open document - "Open document (document id)"
-- [x] Start typing - "Start typing
+- [x] Start typing - "Start typing"
 - [x] Stop typing  - "Stop typing"
 - [x] Change Title - "Change title (new title)"
 - [x] Add paragraph - "Add paragraph"
@@ -48,16 +48,16 @@ Currently supported voice functionality:
 - [x] Remove paragraph - "Remove paragraph (index)"
 - [x] Remove word - "Remove (word) from paragraph (index)"
 - [x] Replace word - "Replace (old word) with (new word) in paragraph (index)"
-- [x] Bold word - "Bold (word) in paragraph (index)
+- [x] Bold word - "Bold (word) in paragraph (index)"
 - [x] Move cursor - "Move cursor to paragraph (index)"
 
 Planned functionality:
 - [ ] Change size - "Change size of paragraph (index)"
 - [ ] Change color - "Change color of paragraph (index)"
-- [ ] Make above paragraph functions into sentence function
+- [ ] Make above paragraph functions into sentence functions
 - [ ] Move Speechful to a container such as Electron
 - [ ] Export a speechful document into common file types
-- [ ] Create tutorial for new users
+- [ ] Create a tutorial for new users
 
 ## Technologies & Frameworks
 The front-end of this application is built with [React](https://reactjs.org/). For natural language processing, we are using [Google Speech](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API). Design element dependancies include: [Material-UI](https://material-ui.com/) and [FontAwesome](https://fontawesome.com/).
