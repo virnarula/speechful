@@ -25,7 +25,7 @@ Speechful is a document editing tool that uses your voice as the primary interfa
 
 Speechful is intended to be a desktop application that allows you to write up an essay, an email, or complete a written test by converting your voice into context-aware instructions. By clearly indexing every paragraph and sentence visually, giving voice instructions has never been easier. Once you open up a document, you can simply say a command such as "start typing" or "delete this from paragraph 2" followed by what you would like to type or delete. The supported commands are described below. Once you finish typing, you can tell Speechful to add punctation after a certain word, move your cursor to another paragraph, and most importantly, change words that were misunderstood.
 
-For HackThis, we have an MVP that runs in Chrome to serve as a proof of concept. Here are some screenshots of the MVP:
+For HackThis, we made a MVP that runs in Chrome to serve as a proof of concept. Here are some screenshots of the MVP:
 
 ![StartScreen](https://github.com/virnarula/speechful/blob/master/src/res/StartScreen.png?raw=true)
 ![HomeScreen](https://github.com/virnarula/speechful/blob/master/src/res/HomeScreen.png?raw=true)
