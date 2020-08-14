@@ -1,6 +1,6 @@
 # ![Logo](./src/res/logo.svg) Speechful 
 
-> Writing documents without a keyboard made easy.
+> Voice editing made easy
 
 A speech-based document editing tool intened for those who cannot use keyboards. 
 
