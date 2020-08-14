@@ -10,7 +10,7 @@ import { sizing } from '@material-ui/system';
 import './DocumentScreen.css'
 import SpeechRecognition, { useSpeechRecognition,  } from 'react-speech-recognition'
 import DocumentDictaphone from '../../speech/DocumentDictaphone'
-import { makeDocument, updateParagraph, addParagraph, removeParagraph, appendToParagraph, changeTitle, removeWord } from '../../model/Document'
+import { makeDocument, updateParagraph, addParagraph, removeParagraph, appendToParagraph, changeTitle, removeWord, replaceWord } from '../../model/Document'
 
 
 class DocumentScreen extends React.Component {
@@ -67,6 +67,13 @@ class DocumentScreen extends React.Component {
     })
   }
 
+  replaceWord = (paragraph, oldWord, newWord) => {
+    console.log("Replace [" + oldWord + "]  with [" + newWord + "] in paragraph " + paragraph)
+    this.setState({
+      document: replaceWord(this.state.document, paragraph - 1, oldWord, newWord)
+    })
+  }
+
   actionHandler = (a) => {
     if(a.action === "SAVE") {
       this.saveDocument()
@@ -82,6 +89,9 @@ class DocumentScreen extends React.Component {
     } 
     else if (a.action === "REMOVE_WORD") {
       this.removeWord(a.payload.paragraph, a.payload.word)
+    }
+    else if (a.action === "REPLACE_WORD") {
+      this.replaceWord(a.payload.paragraph, a.payload.oldWord, a.payload.newWord)
     }
   }
 

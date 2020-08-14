@@ -107,6 +107,20 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
           }
         })
       }
+    },
+    {
+      command: 'replace * with * in paragraph *',
+      highlight: new RegExp('replace with in paragraph'),
+      callback: (oldWord, newWord, paragraph) => {
+        actionHandler({
+          action: "REPLACE_WORD",
+          payload: {
+            oldWord: oldWord,
+            newWord: newWord,
+            paragraph: paragraph
+          }
+        })
+      }
     }
   ]
   

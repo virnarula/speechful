@@ -64,6 +64,14 @@ function removeWord(document, paragraph, word) {
   return newDoc
 }
 
+function replaceWord(document, paragraph, oldWord, newWord) {
+  let newDoc = _.cloneDeep(document)
+  let newParagraph = newDoc.paragraphs[paragraph].text.replace(oldWord, newWord)
+  newDoc.paragraphs[paragraph].text = newParagraph
+  console.log(newParagraph)
+  return newDoc
+}
+
 export {
   makeDocument,
   appendToParagraph,
@@ -73,5 +81,6 @@ export {
   addParagraph,
   removeParagraph,
   changeTitle,
-  removeWord
+  removeWord,
+  replaceWord
 }
