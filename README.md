@@ -40,12 +40,14 @@ Currently supported voice functionality:
 - [x] Remove paragraph - "Remove paragraph (index)"
 - [x] Remove word - "Remove word (word) from paragraph (index)"
 - [x] Replace word - "Replace (old word) with (new word) in paragraph (index)"
-- [x] Bold word - "Bold (word) in paragraph (index)
+- [x] Move cursor - "Move cursor to paragraph (index)"
+- [x] Real time capitalization and grammar checking - Automatic!
 
 Planned functionality:
 - [ ] Change size - "Change size of paragraph (index)"
 - [ ] Change color - "Change color of paragraph (index)"
 - [ ] Make above paragraph functions into sentence function
+- [ ] Bold word - "Bold (word) in paragraph (index)
 
 ## Technologies & Frameworks
 The front-end of this application is built with [React](https://reactjs.org/). For natural language processing, we are using [Google Speech](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API). Design element dependancies include: [Material-UI](https://material-ui.com/) and [FontAwesome](https://fontawesome.com/).
