@@ -10,7 +10,7 @@ import { sizing } from '@material-ui/system';
 import './DocumentScreen.css'
 import SpeechRecognition, { useSpeechRecognition,  } from 'react-speech-recognition'
 import DocumentDictaphone from '../../speech/DocumentDictaphone'
-import { makeDocument, updateParagraph, addParagraph, removeParagraph, appendToParagraph, changeTitle } from '../../model/Document'
+import { makeDocument, updateParagraph, addParagraph, removeParagraph, appendToParagraph, changeTitle, removeWord } from '../../model/Document'
 
 
 class DocumentScreen extends React.Component {
@@ -60,6 +60,13 @@ class DocumentScreen extends React.Component {
     })
   }
 
+  removeWord = (paragraph, word) => {
+    console.log("Remove [" + word + "] from paragraph " + paragraph)
+    this.setState({
+      document: removeWord(this.state.document, paragraph - 1, word)
+    })
+  }
+
   actionHandler = (a) => {
     if(a.action === "SAVE") {
       this.saveDocument()
@@ -72,6 +79,9 @@ class DocumentScreen extends React.Component {
     }
     else if (a.action === "CHANGE_TITLE") {
       this.changeTitle(a.payload.newTitle)
+    } 
+    else if (a.action === "REMOVE_WORD") {
+      this.removeWord(a.payload.paragraph, a.payload.word)
     }
   }
 

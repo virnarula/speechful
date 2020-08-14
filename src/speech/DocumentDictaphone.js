@@ -94,6 +94,19 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
           }
         })
       }
+    },
+    {
+      command: 'remove * from paragraph *',
+      highlight: new RegExp('remove from paragraph'),
+      callback: (word, paragraph) => {
+        actionHandler ({
+          action: "REMOVE_WORD",
+          payload: {
+            word: word,
+            paragraph: paragraph
+          }
+        })
+      }
     }
   ]
   
