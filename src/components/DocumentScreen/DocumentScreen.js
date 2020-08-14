@@ -21,15 +21,24 @@ class DocumentScreen extends React.Component {
 
     this.state = {
       document: makeDocument(doc.paragraphs, doc.title, doc.id),
-      transcript: ""
+      transcript: "",
+      cursorParagraph: 0
     }
   }
 
   transcriptUpdater = (t) => {
+    console.log(this.state.document)
     this.setState({
-      document: appendToParagraph(this.state.document, replacePunctuation(t), 0)
+      document: appendToParagraph(this.state.document, replacePunctuation(t), this.state.cursorParagraph)
     })
-    console.log(appendToParagraph(this.state.document, replacePunctuation(t), 0))
+    console.log(appendToParagraph(this.state.document, replacePunctuation(t), this.state.cursorParagraph))
+  }
+  
+  changeParagraphCursor = (c) => {
+    console.log("p"+c)
+    this.setState({
+      cursorParagraph: c
+    })
   }
 
   paragraphChange = (i, p) => {
@@ -92,6 +101,9 @@ class DocumentScreen extends React.Component {
     }
     else if (a.action === "REPLACE_WORD") {
       this.replaceWord(a.payload.paragraph, a.payload.oldWord, a.payload.newWord)
+    }
+    else if (a.action === "MOVE_CURSOR_PARAGRAPH") {
+      this.changeParagraphCursor(a.payload.paragraph)
     }
   }
 

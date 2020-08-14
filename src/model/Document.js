@@ -15,7 +15,20 @@ function makeDocument(paragraphs, title, id) {
 function appendToParagraph(d, string, pi) {
   let newDoc = _.cloneDeep(d)
   newDoc.paragraphs[pi] = Paragraph.appendToParagraph(d.paragraphs[pi], string)
+  newDoc.paragraphs[pi].text = sentenceCase(newDoc.paragraphs[pi].text)  
+  newDoc.paragraphs[pi].text = newDoc.paragraphs[pi].text.charAt(0).toUpperCase() + newDoc.paragraphs[pi].text.slice(1)
+  newDoc.paragraphs[pi].text = newDoc.paragraphs[pi].text.replace(" .", ".") 
+  newDoc.paragraphs[pi].text = newDoc.paragraphs[pi].text.replace(" ,", ",") 
+  newDoc.paragraphs[pi].text = newDoc.paragraphs[pi].text.replace(/\s+/g, " ") 
   return newDoc
+}
+
+function sentenceCase(input, lowercaseBefore) {
+    input = ( input === undefined || input === null ) ? '' : input;
+    if (lowercaseBefore) { input = input.toLowerCase(); }
+    return input.toString().replace( /(^|\. *)([a-z])/g, function(match, separator, char) {
+        return separator + char.toUpperCase();
+    });
 }
 
 function changeWordInParagraph(d, word, pi, wi) {

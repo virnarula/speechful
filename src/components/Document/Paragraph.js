@@ -46,7 +46,9 @@ class Paragraph extends React.Component {
   render() {
     return (
       <div>
-        <p className="paragraph-editor" contentEditable onBlur={this.changeState} dangerouslySetInnerHTML={{__html:this.applyStyles()}} />
+        <p className="paragraph-editor" contentEditable onBlur={this.changeState} /*dangerouslySetInnerHTML={{__html:this.applyStyles()}}*/>
+        {this.props.paragraph.text}
+        </p>
       </div>
     )
   }

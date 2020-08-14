@@ -45,11 +45,22 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
       command: 'move (cursor) to paragraph :paragraphNum',
       highlight: new RegExp('move (cursor)? to paragraph *', 'gi'),
       callback: (paragraphNum) => {
-        setTyping(true)
         actionHandler({
-          action: "MOVE_CURSOR",
+          action: "MOVE_CURSOR_PARAGRAPH",
           payload: {
-            paragraph: paragraphNum
+            paragraph: Number(paragraphNum) -1
+          }
+        })
+      }
+    },
+    {
+      command: 'move (cursor) to word :word',
+      highlight: new RegExp('move (cursor)? to paragraph *', 'gi'),
+      callback: (word) => {
+        actionHandler({
+          action: "MOVE_CURSOR_WORD",
+          payload: {
+            word: word
           }
         })
       }
@@ -110,7 +121,7 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
     },
     {
       command: 'replace * with * in paragraph *',
-      highlight: new RegExp('replace with in paragraph'),
+      highlight: new RegExp('replace * with * in paragraph'),
       callback: (oldWord, newWord, paragraph) => {
         actionHandler({
           action: "REPLACE_WORD",
@@ -142,7 +153,7 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
         <FontAwesomeIcon icon={faMicrophone} /> 
       </div>
       <span className="command">{typing ? "TYPING " : "NOT TYPING "}&nbsp;</span>
-      {highlightCommands(getLastWords(transcript, 15), commandsTyping.concat(commandsNotTyping))}
+      {getLastWords(transcript, 15)}
     </footer>
   )
 }
@@ -150,27 +161,6 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
 const getLastWords = (transcript, n) => {
   let tArr = transcript.split(" ")
   return tArr.slice(tArr.length - n).join(" ")
-}
-
-const highlightCommands = (transcript, commands) => {
-    /*let regexes = commands.map(c => c.highlight)
-    console.log(regexes)
-    if (!regexes.length) {
-        return transcript;
-    }
-    let split = transcript.split(regexes[0]);
-    // Only needed if matches are case insensitive and we need to preserve the
-    // case of the original match
-    let replacements = transcript.match(regexes[0]);
-    let result = [];
-    for (let i = 0; i < split.length - 1; i++) {
-        result.push(highlightCommands(split[i], regexes.slice(1)));
-        result.push(<span className="command">{replacements[i]}</span>);
-    }
-    result.push(highlightCommands(split[split.length - 1], regexes.slice(1)));
-  console.log(result)
-    return result;*/
-  return transcript
 }
 
 const diffString = (a, b) => a.split(b).join('')
