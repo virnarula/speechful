@@ -21,6 +21,8 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
     }
   ]
 
+  console.log(transcript)
+  
   return (
     <footer>
       <Dictaphone commands={commands} transcriptChangeHandler={setTranscript} finalTranscriptChangeHandler={setFinalTranscript}/>
