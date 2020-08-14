@@ -27,9 +27,9 @@ class DocumentScreen extends React.Component {
 
   transcriptUpdater = (t) => {
     this.setState({
-      document: appendToParagraph(this.state.document, t, 0)
+      document: appendToParagraph(this.state.document, replacePunctuation(t), 0)
     })
-    console.log(appendToParagraph(this.state.document, t, 0))
+    console.log(appendToParagraph(this.state.document, replacePunctuation(t), 0))
   }
 
   paragraphChange = (i, p) => {
@@ -92,6 +92,13 @@ class DocumentScreen extends React.Component {
       </div>
     )
   }
+}
+
+function replacePunctuation (unedited) {
+  unedited = unedited.replace(" comma", ",") 
+  unedited = unedited.replace(" period", ".")
+  unedited = unedited.replace("quotation", "\"")
+  return unedited
 }
 
 export default DocumentScreen;
