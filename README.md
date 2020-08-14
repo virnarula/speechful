@@ -7,22 +7,43 @@ A speech-based document editing tool intened for those who cannot use keyboards.
 ## Table of Contents
 1. [Project Aims](#project-aims)
 1. [Overview](#overview)
+1. [Functionality](#functionality)
 1. [Technologies & Frameworks](#technologies--frameworks)
 1. [Contribute](#contribute)
 1. [File Structure](#file-structure)
 1. [License](#License)
 
 ## Project Aims
-The inspiration for this project was a recognition of the trouble that the COVID-19 Pandemic has caused those with disabilities. Students and employees who would normally have access to disability services now need to adjust to a remote work lifestyle, which can be incredibly problematic for those who cannot use keyboards. This group of people is often larger than most think, including those with missing arms, hands, or digits, and those with conditions such as Parkinson's and Artheritis. We wanted to address this issue by creating an applicaiton that would help these people adjust to the remote classroom or workplace with ease. 
+The inspiration for this project was a recognition of the trouble that the COVID-19 Pandemic has caused those with disabilities. Students and employees who would normally have access to disability services now need to adjust to a remote work lifestyle, which can be incredibly problematic for those who cannot use keyboards. This group of people is greater 28 million in the US, including those with missing arms, hands, or digits, and those with conditions such as Parkinson's, Essential Tremours, Artheritis of the hand, and Carpal Tunnel Syndrome. We wanted to address this issue by creating an applicaiton that would help these people adjust to the remote classroom or workplace with ease. 
 
 ## Overview
-Speechful is a document editing intened to help those who cannot use keyboards. It requires no keyboard or mouse use other than the ones need to open it. With Speechful, you can write, edit, and format documents exactly like you would on MS Word or Google Docs, all without touching the keyboard. 
+Speechful is a document editing intened for those who cannot use keyboards. With Speechful, you can write, edit, and format documents exactly like you would on MS Word or Google Docs, all without touching the keyboard. 
 
 Once you open a document, you can simply a command such as "type" or "navigate" follow by with what you would like to type or navigate. Once you finish your setence, you tell Speechful to bold sentences, add punctation after a certain word, and most importantly, change words that were misunderstood.
 
-For HackThis, we have an MVP that runs in the browser to serve as a proof of concept. The final product will be a stand-alone application. Speech recognition is also currently limited to basic commands. With more time, more complex commands will be added. Here are some screenshots of the MVP:
+For HackThis, we have an MVP that runs in Chrome to serve as a proof of concept. The final product will be a stand-alone application. Speech recognition is also currently limited to basic commands. With more time, more complex commands will be added. Here are some screenshots of the MVP:
 
 < Insert Screenshots here >
+
+## Functionality
+Currently supported voice functionality:
+- [x] Create document - "Create new document"
+- [x] Save document - "Save"
+- [x] Open document - "Open document (document id)"
+- [x] Start typing - "Start typing
+- [x] Stop typing  - "Stop typing"
+- [x] Change Title - "Change title (new title)"
+- [x] Add paragraph - "Add paragraph"
+- [x] Real-time punctuation - comma, period, quotaiton are mapped to ,." respectively
+- [x] Remove paragraph - "Remove paragraph (index)"
+- [x] Remove word - "Remove word (word) from paragraph (index)"
+- [x] Replace word - "Replace (old word) with (new word) in paragraph (index)"
+- [x] Bold word - "Bold (word) in paragraph (index)
+
+Planned functionality:
+- [ ] Change size - "Change size of paragraph (index)"
+- [ ] Change color - "Change color of paragraph (index)"
+- [ ] Make above paragraph functions into sentence function
 
 ## Technologies & Frameworks
 The front-end of this application is built with [React](https://reactjs.org/). For natural language processing, we are using [Google Speech](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API). Design element dependancies include: [Material-UI](https://material-ui.com/) and [FontAwesome](https://fontawesome.com/).

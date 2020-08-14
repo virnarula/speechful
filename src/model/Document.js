@@ -56,6 +56,22 @@ function changeTitle(document, newTitle) {
   return newDoc
 }
 
+function removeWord(document, paragraph, word) {
+  let newDoc = _.cloneDeep(document)
+  let newParagraph = newDoc.paragraphs[paragraph].text.replace(word, '')
+  newDoc.paragraphs[paragraph].text = newParagraph
+  console.log(newParagraph)
+  return newDoc
+}
+
+function replaceWord(document, paragraph, oldWord, newWord) {
+  let newDoc = _.cloneDeep(document)
+  let newParagraph = newDoc.paragraphs[paragraph].text.replace(oldWord, newWord)
+  newDoc.paragraphs[paragraph].text = newParagraph
+  console.log(newParagraph)
+  return newDoc
+}
+
 export {
   makeDocument,
   appendToParagraph,
@@ -64,5 +80,7 @@ export {
   updateParagraph,
   addParagraph,
   removeParagraph,
-  changeTitle
+  changeTitle,
+  removeWord,
+  replaceWord
 }
