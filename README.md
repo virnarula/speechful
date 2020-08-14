@@ -23,6 +23,8 @@ Once you open a document, you can simply a command such as "type" or "navigate" 
 
 For HackThis, we have an MVP that runs in Chrome to serve as a proof of concept. The final product will be a stand-alone application. Speech recognition is also currently limited to basic commands. With more time, more complex commands will be added. Here are some screenshots of the MVP:
 
+We also made a business pitch for HackThis, which can be found here: (Slides)[https://docs.google.com/presentation/d/1Lv1SIm_yvH8oizCI6m0so60j3Je6UzWNirOie5IRAZ0/edit#slide=id.p] & (Transcript)[https://docs.google.com/document/d/1GT0u5xcKKvaxGUeyUUNIsTQAZTqoQKfIGqxx02tKd28/edit]
+
 < Insert Screenshots here >
 
 ## Functionality
