@@ -4,6 +4,7 @@ import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./DictaphoneStyle.css"
 import { random } from 'lodash';
+import {makeParagraph} from '../model/Paragraph'
 
 //call in actionHandler(action) to send an action to the parent document component for changes to the document
 const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
@@ -26,8 +27,9 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
       callback: (food) => {
         setMessage("Create new document")
         let id = random(0,99999);
-        localStorage.setItem("doc"+id, JSON.stringify({paragraphs: [], title: "Untitled", "id": id}))
-        document.location.href = document.location.href.substring(0,document.location.href.indexOf("home"))+"document/:"+id;
+        localStorage.setItem("doc"+id, JSON.stringify({paragraphs: [makeParagraph("", [])], title: "Untitled", "id": id}))
+        openDocument(id)
+        // document.location.href = document.location.href.substring(0,document.location.href.indexOf("home"))+"document/:"+id;
         console.log("Creating new doc")
       },
       matchInterim: true
