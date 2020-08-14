@@ -8,7 +8,7 @@ const StartDictaphone = () => {
   const commands = [
     {
       command: '(*) hello',
-      callback: (food) => { 
+      callback: (_) => { 
         document.location.href = document.location.href+"home";
       },
       matchInterim: true

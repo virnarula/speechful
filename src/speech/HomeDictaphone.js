@@ -3,6 +3,7 @@ import Dictaphone from './Dictaphone'
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./DictaphoneStyle.css"
+import { random } from 'lodash';
 
 //call in actionHandler(action) to send an action to the parent document component for changes to the document
 const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
@@ -18,6 +19,17 @@ const DocumentDictaphone = ({transcriptUpdater, actionHandler}) => {
       command: '(*) open (document) :id',
       highlight: new RegExp('\\bopen document\\b', 'gi'),
       callback: (_, id) => openDocument(id)
+    },
+    {
+      command: 'Create new document',
+      callback: (food) => {
+        setMessage("Create new document")
+        let id = random(0,99999);
+        localStorage.setItem("doc"+id, JSON.stringify({paragraphs: [], title: "Untitled", "id": id}))
+        document.location.href = document.location.href.substring(0,document.location.href.indexOf("home"))+"document/:"+id;
+        console.log("Creating new doc")
+      },
+      matchInterim: true
     }
   ]
 
