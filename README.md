@@ -21,11 +21,9 @@ Speechful is a document editing intened for those who cannot use keyboards. With
 
 Once you open a document, you can simply a command such as "type" or "navigate" follow by with what you would like to type or navigate. Once you finish your setence, you tell Speechful to bold sentences, add punctation after a certain word, and most importantly, change words that were misunderstood.
 
-For HackThis, we have an MVP that runs in Chrome to serve as a proof of concept. The final product will be a stand-alone application. Speech recognition is also currently limited to basic commands. With more time, more complex commands will be added. Here are some screenshots of the MVP:
+For HackThis, we have an MVP that runs in Chrome to serve as a proof of concept. The final product will be a stand-alone application. Speech recognition is also currently limited to basic commands. With more time, more complex commands will be added
 
 We also made a business pitch for HackThis, which can be found here: [Slides](https://docs.google.com/presentation/d/1Lv1SIm_yvH8oizCI6m0so60j3Je6UzWNirOie5IRAZ0/edit#slide=id.p) & [Transcript](https://docs.google.com/document/d/1GT0u5xcKKvaxGUeyUUNIsTQAZTqoQKfIGqxx02tKd28/edit)
-
-< Insert Screenshots here >
 
 ## Functionality
 Currently supported voice functionality:
@@ -46,9 +44,10 @@ Planned functionality:
 - [ ] Change size - "Change size of paragraph (index)"
 - [ ] Change color - "Change color of paragraph (index)"
 - [ ] Make above paragraph functions into sentence function
+- [ ] Port application into a container such as Electron
 
 ## Technologies & Frameworks
-The front-end of this application is built with [React](https://reactjs.org/). For natural language processing, we are using [Google Speech](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API). Design element dependancies include: [Material-UI](https://material-ui.com/) and [FontAwesome](https://fontawesome.com/).
+The front-end of this application is built with [React](https://reactjs.org/). For natural language processing, we are using [Google Speech](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API). We hope that by using React we will be able to port this application easily to a stand-alone one. Simiarly, by using Google Speech we will be able to support more languages easily. Design element dependancies include: [Material-UI](https://material-ui.com/) and [FontAwesome](https://fontawesome.com/).
 
 ## Contribute
 In order to set up the project for contribution, run:
