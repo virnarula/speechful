@@ -46,8 +46,9 @@ class DocumentItem extends React.Component {
             <a href={getDocumentUrl(this.props.document.id)} style={{textDecoration: 'none'}}>
                 <div className="DocumentItem" >
                     <h1 className="DocumentTitle"> {this.props.document.title} </h1>
-                    <p>{(this.props.document.paragraphs.length > 0) ? this.props.document.paragraphs[0].text.substring(0, 50) : "Empty Document"}...</p>
-                    <p>Words: {(this.props.document.paragraphs.length > 0) ? this.props.document.paragraphs.map(e => e.text.split(" ").length).reduce((acc, c) => acc + c) : "0"}</p>
+                    <p>{this.props.document.paragraphs[0].text.substring(0, 50)}...</p>
+                    <p>ID: {this.props.document.id}</p>
+                    <p>Words: {this.props.document.paragraphs.map(e => e.text.split(" ").length).reduce((acc, c) => acc + c)}</p>
                     <p>Paragraphs: {this.props.document.paragraphs.length}</p>
                 </div>
             </a>
@@ -67,7 +68,7 @@ class CreateDocumentItem extends React.Component {
 }
 
 function getDocumentUrl(id) {
-    return "/document/:" + id.toString();
+    return "/document/" + id.toString();
 }
 
 class DocumentGrid extends React.Component {
@@ -77,7 +78,7 @@ class DocumentGrid extends React.Component {
                 <CreateDocumentItem />
                 {
                     this.props.documentList.map((p, i) => {
-                        return <DocumentItem document={p} />
+                        return <DocumentItem key={i} document={p} />
                     })
                 }
             </div>

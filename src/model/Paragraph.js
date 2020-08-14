@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-export function makeParagraph(text, styles) {
+function makeParagraph(text, styles) {
   let p = {}
   p.text = text;
   p.styles = styles;
@@ -11,7 +11,7 @@ export function makeParagraph(text, styles) {
   return p
 }
 
-export function changeWord(p, word, i) {
+function changeWord(p, word, i) {
   let newPara = _.cloneDeep(p)
   let words = newPara.text.split(" ")
   if (word === "") {
@@ -24,7 +24,7 @@ export function changeWord(p, word, i) {
   return newPara
 }
   
-export function changeSentence(p, sentence, i) {
+function changeSentence(p, sentence, i) {
   let newPara = _.cloneDeep(p)
   let sentences = newPara.text.split(".")
   if (sentence === "") {
@@ -35,4 +35,17 @@ export function changeSentence(p, sentence, i) {
   }
   newPara.text = sentences.join(".")
   return newPara
+}
+
+function appendToParagraph(p, string) {
+  let newPara = _.cloneDeep(p)
+  newPara.text += string
+  return newPara
+}
+
+export {
+  makeParagraph,
+  changeWord,
+  changeSentence,
+  appendToParagraph
 }

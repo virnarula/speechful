@@ -10,14 +10,14 @@ import { sizing } from '@material-ui/system';
 import './DocumentScreen.css'
 import SpeechRecognition, { useSpeechRecognition,  } from 'react-speech-recognition'
 import DocumentDictaphone from '../../speech/DocumentDictaphone'
-import { makeDocument, updateParagraph, addParagraph, removeParagraph } from '../../model/Document'
+import { makeDocument, updateParagraph, addParagraph, removeParagraph, appendToParagraph } from '../../model/Document'
 
 
 class DocumentScreen extends React.Component {
   constructor(props) {
     super(props)
     let url = window.location.href;
-    let doc = JSON.parse(localStorage.getItem("doc"+url.slice(url.lastIndexOf(':') + 1)));
+    let doc = JSON.parse(localStorage.getItem("doc"+url.slice(url.lastIndexOf('/') + 1)));
 
     this.state = {
       document: makeDocument(doc.paragraphs, doc.title, doc.id),
@@ -25,10 +25,11 @@ class DocumentScreen extends React.Component {
     }
   }
 
-  transcriptChange = (t) => {
+  transcriptUpdater = (t) => {
     this.setState({
-      transcript: t
+      document: appendToParagraph(this.state.document, t, 0)
     })
+    console.log(appendToParagraph(this.state.document, t, 0))
   }
 
   paragraphChange = (i, p) => {
@@ -52,8 +53,16 @@ class DocumentScreen extends React.Component {
     })
   }
 
-  actionHandler = (action) => {
-    console.log(action)
+  actionHandler = (a) => {
+    if(a.action === "SAVE") {
+      this.saveDocument()
+    }
+    else if(a.action === "REMOVE_PARAGRAPH") {
+      this.removeParagraph(a.payload.paragraph)
+    }
+    else if(a.action === "ADD_PARAGRAPH") {
+      this.addParagraph()
+    }
   }
 
   saveDocument = () => {
@@ -79,7 +88,7 @@ class DocumentScreen extends React.Component {
             removeParagraph={this.removeParagraph}
           />
         </div>
-        <DocumentDictaphone actionHandler={this.actionHandler}/>
+        <DocumentDictaphone transcriptUpdater={this.transcriptUpdater} actionHandler={this.actionHandler}/>
       </div>
     )
   }

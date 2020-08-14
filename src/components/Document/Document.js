@@ -10,7 +10,7 @@ class Document extends React.Component {
     return (
       <article>
         <header>
-          <h1 class="document-title">{this.props.document.title}</h1>
+          <h1 className="document-title">{this.props.document.title}</h1>
         </header>
         <section>
         {
